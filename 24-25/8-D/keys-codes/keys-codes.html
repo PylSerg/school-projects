@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keys Codes</title>
+
+    <style>
+        body {
+            background-color: #373737;
+            color: #ccc;
+        }
+
+        textarea {
+            width: calc(100% - 2 * 30px);
+            max-width: calc(100% - 2 * 30px);
+            height: 50px;
+            max-height: 50vh;
+
+            padding: 30px;
+
+            font-size: 40px;
+
+            border-radius: 15px;
+        }
+
+        ol li {
+            font-size: 30px;
+            line-height: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <textarea wrap="soft" autofocus data-input></textarea>
+
+    <ol data-result>
+    </ol>
+
+    <script>
+        const refInput = document.querySelector("[data-input]");
+        const refResult = document.querySelector("[data-result]");
+
+        function setResult(e) {
+
+            const li = document.createElement("li");
+
+            li.textContent = `${e.key}  =>  ${e.keyCode}`
+
+            refResult.appendChild(li)
+        }
+
+        refInput.addEventListener("keydown", (e) => setResult(e));
+    </script>
+
+</body>
+
+</html>
