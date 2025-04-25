@@ -1,14 +1,29 @@
 # justify - вирівнювання тексту по ширині ("left", "right", "center")
 # wraplength - максимальна ширина тексту в пікселях, після якої текст буде перенесено на новий рядок
 
-from tkinter import Tk, Label, Button, Entry
+from tkinter import Tk, Label, Button, Entry, messagebox
 
 # Функція для обчислення площі та периметра прямокутника
 def calc():
     # Отримання значень сторін A та B з полів вводу
-    # Перетворення значень у тип float
-    a = float(side_a_entry.get())
-    b = float(side_b_entry.get())
+    a = side_a_entry.get()
+    b = side_b_entry.get()
+    
+    # Перевіряємо введені дані.
+    # Якщо хоча б одне із полів порожнє - показуємо вікно з помилкою, та виходимо із функції
+    if a == "" or b == "":
+        messagebox.showerror(title="Error", message="Сторони А і В не можуть бути порожніми!")
+        return
+    
+    # Перетворення значень у тип float  
+    a = float(a)
+    b = float(b)
+        
+    # Перевіряємо введені дані.
+    # Якщо хоча б одне значення менше або дорівнює 0 - показуємо вікно з помилкою, та виходимо із функції
+    if a <= 0 or b <= 0:
+        messagebox.showerror(title="Error", message="Сторони А і В не можуть бути від'ємними або дорівнювати 0!")
+        return
     
     # обчислення площі та периметра
     area = a * b
@@ -22,6 +37,7 @@ def calc():
     side_a_entry.delete(0, 'end')
     side_b_entry.delete(0, 'end')
 
+# Створення основного вікна програми
 root = Tk()
 root.title("Обчислення прямокутника")
 root.geometry("400x400")
