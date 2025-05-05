@@ -38,7 +38,7 @@ def update_todos_list():
 
         
 def add_new_task():
-    todos.append(input_entry.get())    
+    todos.insert(0, input_entry.get())    
     
     with open(todos_list, "w") as file:
         json.dump(todos, file)
@@ -56,11 +56,32 @@ def delete_task(task_number):
         json.dump(todos, file)
     
     update_todos_list()
+    
+
+def previous_page():
+   global part
+   
+   if part == 10: return 
+   
+   part -= 10
+   
+   update_todos_list()
+   
+
+def next_page():
+    global part
+    
+    part += 10
+    
+    if (part - len(todos)) > 10: part -= 10
+    
+    update_todos_list()
 
 
 root = Tk()
 root.title("TODOS")
 root.geometry("600x650")
+root.resizable(False, False)
 
 input_label = Label(root, text="Введіть нове завдання:", font=("Arial", 14, "bold"))
 input_label.place(x=20, y=20)
@@ -76,10 +97,10 @@ todos_label.place(x=20, y=150)
     
 todos_frame = Frame(root)
 
-previous_button = Button(root, text="▲", height=10)
+previous_button = Button(root, text="▲", height=10, command=previous_page)
 previous_button.place(x=550, y=250)
 
-next_button = Button(root, text="▼", height=10)
+next_button = Button(root, text="▼", height=10, command=next_page)
 next_button.place(x=550, y=430)
 
 update_todos_list()
