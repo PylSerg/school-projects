@@ -52,6 +52,19 @@ def add_new_task():
     input_entry.delete(0, "end")
     
     update_todos_list()
+    
+
+def sort_by_asc():
+    todos.sort()
+    
+    update_todos_list()
+    
+
+def sort_by_desc():
+    todos.sort()
+    todos.reverse()
+    
+    update_todos_list()
 
 
 def delete_task(task_number):
@@ -106,6 +119,7 @@ root.title("TODOS")
 root.geometry("600x650")
 root.resizable(False, False)
 
+
 input_label = Label(root, text="Введіть нове завдання:", font=("Arial", 14, "bold"))
 input_label.place(x=20, y=20)
 
@@ -115,13 +129,22 @@ input_entry.place(x=20, y=50)
 add_task_button = Button(root, text="Додати завдання", command=add_new_task)
 add_task_button.place(relx=0.5, y=100, anchor="center")
 
+
 sort_label = Label(root, text="Сортування:", font=("Arial", 12, "bold"))
-sort_label.place(x=360, y=130)
+sort_label.place(x=360, y=131)
+
+sort_by_asc_button = Button(root, text="А→Я", command=sort_by_asc)
+sort_by_asc_button.place(x=480, y=130)
+
+sort_by_desc_button = Button(root, text="Я→А", command=sort_by_desc)
+sort_by_desc_button.place(x=530, y=130)
+
 
 todos_label = Label(root, text=f"Список завдань ({len(todos)})", font=("Arial", 14, "bold"))
 todos_label.place(x=20, y=150)
     
 todos_frame = Frame(root)
+
 
 previous_button = Button(root, text="▲", height=10, command=previous_page)
 previous_button.place(x=550, y=250)
