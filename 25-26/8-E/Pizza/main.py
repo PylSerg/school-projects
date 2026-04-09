@@ -19,6 +19,7 @@ root = Tk()
 root.title("Замовлення")
 root.geometry("440x300")
 
+
 # Створюємо віджети
 header_1 = Label(root, text="Найменування", font="Arial 10 bold")
 header_2 = Label(root, text="Ціна, грн", font="Arial 10 bold")
@@ -98,5 +99,6 @@ cost_4.place(x=310, y=180, width=60, height=30)
 
 total_cost_title.place(x=20, y=250)
 total_cost_sum.place(x=200, y=250)
+
 
 root.mainloop()
