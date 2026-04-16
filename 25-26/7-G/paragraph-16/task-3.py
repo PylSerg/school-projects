@@ -6,3 +6,22 @@
 # мала розв’язок?
 
 
+# Початкова вага в грамах для зручності обчислень
+weight_chaki = 1500  # 1.5 кг
+weight_cherri = 2500  # 2.5 кг
+gain_per_cutlet = 100
+
+# Введення даних
+x = int(input("Скільки котлет з'їдає Чакі за день (x): "))
+y = int(input("Скільки котлет з'їдає Черрі за день (y): "))
+
+# Обчислення різниці у вазі та швидкості набору ваги
+weight_diff = weight_cherri - weight_chaki
+daily_gain_diff = (x * gain_per_cutlet) - (y * gain_per_cutlet)
+
+# Перевірка умови розв'язності
+if x > y:
+    days = weight_diff / daily_gain_diff
+    print(f"\nЧакі наздожене Черрі через {days} днів.")
+else:
+    print("\nЗадача не має розв'язку: Чакі ніколи не наздожене Черрі при такому раціоні.")
