@@ -6,3 +6,17 @@
 # кістю z км/год. Значення x, y та z вводить користувач.
 
 
+# Введення даних
+x = float(input("Введіть час у годинах: "))
+y = float(input("Введіть швидкість велосипедиста: "))
+z = float(input("Введіть швидкість мотоцикліста: "))
+
+# Обчислення
+time_cyclist = x + 1
+distance_cyclist = time_cyclist * y
+distance_motorcyclist = x * z
+distance_total = distance_cyclist + distance_motorcyclist
+
+# Виведення результату
+print("Відстань між пунктами A і B: ", distance_total)
+
