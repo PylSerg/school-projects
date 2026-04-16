@@ -7,16 +7,24 @@
 
 
 # Введення даних
-x = float(input("Введіть час у годинах: "))
-y = float(input("Введіть швидкість велосипедиста: "))
-z = float(input("Введіть швидкість мотоцикліста: "))
+x = float(input("Через скільки годин після виїзду мотоцикліста вони зустрілися (x): "))
+y = float(input("Яка швидкість велосипедиста у км/год (y): "))
+z = float(input("Яка швидкість мотоцикліста у км/год (z): "))
 
-# Обчислення
+# Обчислення часу в дорозі
+# Велосипедист виїхав на 1 годину раніше, тому він був у дорозі (x + 1) годин
 time_cyclist = x + 1
-distance_cyclist = time_cyclist * y
-distance_motorcyclist = x * z
-distance_total = distance_cyclist + distance_motorcyclist
+time_motorcyclist = x
+
+# Обчислення відстаней
+distance_cyclist = y * time_cyclist
+distance_motorcyclist = z * time_motorcyclist
+
+# Загальна відстань між пунктами A і B
+total_distance = distance_cyclist + distance_motorcyclist
 
 # Виведення результату
-print("Відстань між пунктами A і B: ", distance_total)
+print(f"\nВелосипедист проїхав: {distance_cyclist} км")
+print(f"Мотоцикліст проїхав: {distance_motorcyclist} км")
+print(f"Відстань між пунктами A і B: {total_distance} км")
 
