@@ -1,4 +1,4 @@
-text = "Setting up developement environment PyCharm python-gtk windows"
+text = "Розділення тексту та об'єднання елементів списку у Python"
 
 text_list = text.split()
 
