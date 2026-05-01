@@ -4,7 +4,7 @@
 # int — перетворення на цілі числа
 # split() — розділення рядка на елементи
 
-numbers = list(map(int, input("Enter numbers: ").split()))
+numbers = list(map(int, input("Введіть числа: ").split()))
 result = 0
 
 for number in numbers:
