@@ -12,17 +12,15 @@ try:
         todos = json.load(file)
 except:
     with open(TODO_LIST_FILE, "w") as file:
-        todos = json.dump(file)
+        json.dump(todos, file)
 
 
 
 def add_new_task():
-    global todos
-
     todos.insert(0, input_entry.get())
 
     with open(TODO_LIST_FILE, "w", encoding="utf-8") as file:
-        todos = json.dump(file)
+        json.dump(todos, file)
 
     input_entry.delete(0, "end")
 
