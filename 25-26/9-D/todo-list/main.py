@@ -27,7 +27,10 @@ def update_todos_list():
         position_y = indx * 40
 
         task_label = tk.Label(todos_frame, text=f"{indx}. {todo}", font="Arial 14", justify="left")
-        task_label.place(x=20, y=position_y)
+        task_label.place(x=40, y=position_y)
+
+        delete_button = tk.Button(todos_frame, text="X", font="Arial 12 bold", fg="red", command=lambda j=indx-1: delete_task(j))
+        delete_button.place(x=20, y=position_y)
 
 
 
@@ -39,6 +42,14 @@ def add_new_task():
 
     input_entry.delete(0, "end")
     
+    update_todos_list()
+
+def delete_task(task_number):
+    todos.pop(task_number)
+
+    with open(TODO_LIST_FILE, "w") as file:
+        json.dump(todos, file)
+
     update_todos_list()
 
 
